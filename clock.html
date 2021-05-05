@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="utilities.css">
-    <title>Time Clock</title>
-    <script src="index.js"></script>
+    <title>Time Clock</title>    
 </head>
-<body>
+<body onload="setTime()">
     <div class="navbar container">
         <ul class="flex">
             <li class="home"><a href="">Home</a></li>
@@ -19,5 +18,13 @@
             <li><a href="">Updates</a></li>
         </ul>
     </div>
+    <div class="main container">
+        <div class="card">
+            <h2>Current Time:</h2>
+            <p>Select the country to see time for it.</p>
+            <button onclick="clearTimer()">Click Me To Stop Timer</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
 </body>
 </html>
