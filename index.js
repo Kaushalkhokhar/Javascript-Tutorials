@@ -1,52 +1,28 @@
-// document.getElementsByClassName('flex').onload = function() {
-//     setTimer();
-//     console.log('yes');
-// };
-
-
-// let myTimer = setInterval(startTimer, 1000);
 var myTimer, flag = true;
-
-// window.onload = function setTimer() {
-//     if (localStorage.getItem("hasCodeRunBefore") === null) {
-//         var myTimer = setInterval(startTimer, 1000);
-//         console.log('ok'); 
-//         localStorage.setItem("hasCodeRunBefore", true);
-//     }
-// }
-
-// if(flag = true) {
-//     setTimer();
-//     flag = false;
-//     console.log('if run')
-// }
 
 function setTimer() {
     myTimer = setInterval(startTimer, 1000);
-    flag = false;
-    console.log('settimer run');
-    document.querySelectorAll('button')[1].style.display = "none";
-    document.querySelectorAll('button')[0].style.display = "block";             
-} 
-
+    document.querySelectorAll('button')[0].innerHTML = 'Click Me To Stop Timer'
+    document.querySelectorAll('button')[0].onclick = clearTimer;
+}
 
 myTimer = setInterval(startTimer, 1000);
 function startTimer() {
-    console.log('startTimer run')    
     let date = new Date();
+    let dateHMS = [date.getHours(), date.getMinutes(), date.getSeconds()];
+    let i;
+    for (i = 0; i <= 2; i++) {
+        dateHMS[i] = dateHMS[i].toLocaleString('an-us', {
+        minimumIntegerDigits: 2,
+        })       
+    }
     let p_tag = document.querySelectorAll('p')[0];
-    p_tag.innerHTML = date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();           
+    p_tag.innerHTML = dateHMS[0] + ':' + dateHMS[1] + ':' + dateHMS[2];
 };
     
 function clearTimer() {
-    console.log('cleartimer run')
     clearInterval(myTimer);
-    flag = false;
-    // document.querySelectorAll('button')[0].innerHTML = 'Click Me To Start Timer'
-    // document.querySelectorAll('button')[0].onclick = setTimer;
-    // myTimer = setInterval(startTimer, 1000);
-    document.querySelectorAll('button')[1].style.display = "block";
-    document.querySelectorAll('button')[0].style.display = "none";
+    document.querySelectorAll('button')[0].innerHTML = 'Click Me To Start Timer'
+    document.querySelectorAll('button')[0].onclick = setTimer;
 }
 
-// window.onload = setTimer();
