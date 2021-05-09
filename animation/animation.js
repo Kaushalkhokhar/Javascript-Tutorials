@@ -1,0 +1,52 @@
+function animation1() {
+    let slideIndex = 0;
+    showSlides();
+    function showSlides() {
+        console.log('running....')
+        let i;
+        let slides = document.querySelectorAll('.moving');
+        console.log(slides.length)
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = 'none';
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {
+            slideIndex = 1;
+        }
+        slides[slideIndex - 1].style.display = 'block';
+        setTimeout(showSlides, 3000);
+    }
+}
+// animation1();
+
+function animation2() {
+    let i = 0, j, ele, cont, eleWidth;
+    ele = document.querySelectorAll('.moving');
+    cont = document.querySelector('.container');
+    eleWidth = ele[1].getBoundingClientRect().x -
+        ele[0].getBoundingClientRect().x
+
+    j = 2;
+    let timer;
+    timer = setInterval(slideShow, 4000);
+
+    function slideShow() {
+        if (j == 2) {
+            ele[0].style.transform = `translateX(${2 * eleWidth}px)`;
+            ele[1].style.transform = `translateX(${-eleWidth}px)`;
+            ele[2].style.transform = `translateX(${-eleWidth}px)`;
+            j -= 1;
+        } else if (j == 1) {
+            ele[0].style.transform = `translateX(${eleWidth}px)`;
+            ele[1].style.transform = `translateX(${eleWidth}px)`;
+            ele[2].style.transform = `translateX(${-2*eleWidth}px)`;
+            j -= 1;
+        } else if (j == 0) {
+            ele[0].style.transform = `translateX(${eleWidth-eleWidth}px)`;
+            ele[1].style.transform = `translateX(${eleWidth-eleWidth}px)`;
+            ele[2].style.transform = `translateX(${eleWidth-eleWidth}px)`;
+            j = 2;
+        }          
+    }
+}
+animation2();
