@@ -20,21 +20,28 @@ function animation1() {
 // animation1();
 
 function animation2() {
-    let i = 0, j, ele, cont, eleWidth;
+    let i = 0, j = 2, ele, cont, eleWidth;
     ele = document.querySelectorAll('.moving');
     cont = document.querySelector('.container');
     eleWidth = ele[1].getBoundingClientRect().x -
-        ele[0].getBoundingClientRect().x
+        ele[0].getBoundingClientRect().x    
 
-    j = 2;
+    // To set a timer to repeat a give function execution
     let timer;
-    timer = setInterval(slideShow, 4000);
-
+    timer = setInterval(slideShow, 3000);
+    
+    // To add a class name to html element
+    for (i = 0; i < ele.length; i++) {
+        ele[i].classList.add('.animation');
+    }
+    
+    // Function which runs a slideshow
     function slideShow() {
-        if (j == 2) {
+        if (j == 2) {            
             ele[0].style.transform = `translateX(${2 * eleWidth}px)`;
             ele[1].style.transform = `translateX(${-eleWidth}px)`;
             ele[2].style.transform = `translateX(${-eleWidth}px)`;
+
             j -= 1;
         } else if (j == 1) {
             ele[0].style.transform = `translateX(${eleWidth}px)`;
@@ -49,4 +56,4 @@ function animation2() {
         }          
     }
 }
-animation2();
+// animation2();

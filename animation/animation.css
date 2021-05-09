@@ -12,8 +12,9 @@
 }
 
 .animation {
-    animation-name: ani;
+    animation-name: ani1;
     animation-duration: 2s;
+    animation-timing-function: ease-in-out;   
 }
 
 .moving img {
@@ -32,8 +33,15 @@
 @keyframes ani1 {
     0% {
         transform: translateX(50%);
+        opacity: 0;
     }
+
+    50% {
+        opacity: 0;
+    }
+
     100% {
         transform: translateX(0);
+        opacity: 1;
     }
 }
