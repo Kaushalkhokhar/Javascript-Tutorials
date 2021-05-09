@@ -1,11 +1,18 @@
 function animation1() {
     let slideIndex = 0;
     showSlides();
+    let cont = document.querySelector('.container');
+    
+    // TO add and remove class of an element using js
+    cont.classList.add('container1');
+    cont.classList.remove('container');
+
+    // Function for animation and slideshow.
     function showSlides() {
         console.log('running....')
         let i;
         let slides = document.querySelectorAll('.moving');
-        console.log(slides.length)
+        console.log(slides.length)        
         for (i = 0; i < slides.length; i++) {
             slides[i].style.display = 'none';
         }
@@ -14,10 +21,11 @@ function animation1() {
             slideIndex = 1;
         }
         slides[slideIndex - 1].style.display = 'block';
+        // Repeats function showSlides after 3s.
         setTimeout(showSlides, 3000);
     }
 }
-// animation1();
+animation1();
 
 function animation2() {
     let i = 0, j = 2, ele, cont, eleWidth;
